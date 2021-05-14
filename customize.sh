@@ -26,7 +26,7 @@ _math() {
 }
 
 _usage() {
-  __red "$@" >&2
+  echo "$@" >&2
   printf "\n" >&2
 }
 
