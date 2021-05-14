@@ -55,7 +55,10 @@ installcronjob() {
     _CRONTAB="fcrontab"
   fi
   _t=$(_time)
-  random_minute=$(_math $_t % 60)
+  random_minute=$(_math $_t % 60 + 2)
+  if [[ ${random_minute} == "60" ]];then
+    random_minute="0"
+  fi
   if ! $_CRONTAB -l | grep "$PROJECT_ENTRY --cron"; then
       $_CRONTAB -l | {
         cat
