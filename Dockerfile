@@ -6,3 +6,6 @@ RUN apk --update add curl bash openjdk8-jre-base && \
 
 ENV JAVA_HOME /usr/lib/jvm/default-jvm
 ENV PATH ${PATH}:${JAVA_HOME}/bin
+
+COPY customize.sh /customize.sh
+RUN chmod +x /customize.sh && /customize.sh --install-cronjob
